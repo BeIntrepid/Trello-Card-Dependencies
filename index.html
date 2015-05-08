@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%; width: 100%">
+	<head>
+		<meta charset="utf-8">
+		<title>Trello Card Dependencies</title>
+		<script type="text/javascript" src="lib/jquery.js"></script>
+		<script type="text/javascript" src="lib/inline.plugin.js"></script>
+		<script type="text/javascript" src="lib/d3.v3.js"></script>
+		<script type="text/javascript" src="inVis.js"></script>
+		<script type="text/javascript" src="lib/linq.js"></script>
+		
+		<script type="text/javascript" src="trello/transformer.js"></script>
+		<script type="text/javascript" src="trello/client.js"></script>
+		
+		<style id="customStyle" type="text/css">
+			.card
+			{
+				border-radius:3px;
+				width : 200px;
+				height : 100px;
+				background-color: white;
+			}
+			
+			.list
+			{
+				border-radius:3px;
+				width : 100px;
+				height : 100px;
+				background-color: blue;
+			}
+			
+			.anchor
+			{
+				border-radius:3px;
+				width : 100px;
+				height : 100px;
+				background-color: rgb(219, 219, 219);
+			}
+			
+			.name {
+				width: 100%;
+				text-align: center;
+				margin-top: 40%;
+				display: inline-block;
+			}
+			
+			.back{
+				background-color: rgb(35, 113, 159);
+			}
+			
+			#templates
+			{
+				display:none;
+			}
+			
+			#markerArrow
+			{
+				fill: #ccc;
+			}
+			
+			/** Card State Styles */
+			
+			.blocked {
+				background-color: red;
+			}
+			
+			.in-progress {
+				background-color: grey;
+			}
+			
+			.backlog {
+				background-color: white;
+			}
+			
+			.done {
+				background-color: green;
+			}
+			
+			.accepted {
+				background-color: green;
+			}
+
+            .legend,.addDependencyArea  {
+                position: absolute;
+                left: 10px;
+                top: 10px;
+                max-width: 100px;
+
+                background-color: rgba(255,255,255,0.5);
+                border-radius:5px;
+                padding: 5px;
+            }
+			
+			.addDependencyArea{
+				left: 125px;
+                top: 10px;
+				max-width : none;
+			}
+			
+			.dependencyButton{
+				padding: 0 10px 0 10px;
+				margin-left:8px;
+				display:block;
+				float:none;
+				margin-bottom: 10px;
+			}
+
+            .keys{
+                margin-bottom: 5px;
+            }
+
+            .legend p {
+                margin-left: 5px;
+            }
+
+            .keys li{
+                padding: 5px;
+                opacity: 0.8;
+            }
+			
+			.badge-points{
+				display:none;
+			}
+			
+			.loadingMessage
+			{
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				font-size : 30px;
+			}
+			
+		</style>
+	
+	</head>
+	<body class="back" style="height: 100%; width: 100%">
+	
+	<div class="loadingMessage"><p>Loading</p></div>
+
+        <div class="legend">
+            <h3>Legend</h3>
+            <ul class="keys">
+                <li class="backlog">Backlog</li>
+                <li class="in-progress">In Progress</li>
+                <li class="blocked">Blocked</li>
+                <li class="done">Done</li>
+            </ul>
+			
+			<b>Controls</b>
+			<p>Use the mouse wheel to zoom</p>
+            <p>Drag the background to pan</p>
+            <p>Drag nodes to improve the layout</p>
+        </div>
+		
+		<div class="addDependencyArea">
+			<h3>Actions</h3>
+			<b><p id="dependencyWarning"></p></b>
+			<a class="header-btn dependencyButton" style="height:auto;" id="addDependencyButton" ><b>Add dependency</b></a>
+			<a class="header-btn dependencyButton" style="height:auto;" id="removeDependencyButton" ><b>Remove Dependency</b></a>
+			
+			<a class="header-btn dependencyButton" style="height:auto;display:none;" id="cancelDependencyButton" ><b>Cancel</b></a>
+						
+			<p id="dependency"></p>
+			<p id="dependant"></p>
+
+        </div>
+
+		<div id="templates">
+			
+            <div id="cardTemplate">
+				<div class="card">
+					<div class="name"></div>
+				</div>
+			<div/>
+			
+			<div id="listTemplate">
+				<div class="list">
+					<div class="name"></div>
+				</div>
+			<div/>
+			
+			<div id="anchorTemplate">
+				<div class="anchor">
+					<div class="name"></div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<script type="text/javascript" src="app.js"></script>
+	</body>
+</html>
