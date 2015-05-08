@@ -87,7 +87,11 @@ TrelloTransformer.prototype = function()
 			}
 						
 			Enumerable.From(deps).ForEach(function(depId){
-				links.push({target : i, source : getIndexFromShortId(depId,nodes)});
+				var index = getIndexFromShortId(depId, nodes);
+				if (index > -1)
+				{
+					links.push({target : i, source : getIndexFromShortId(depId, nodes)});
+				}
 			});
 			
 		});	
@@ -101,11 +105,11 @@ TrelloTransformer.prototype = function()
 	
 	var getIndexFromShortId = function(id,nodes){
 	
-		var node = Enumerable.From(nodes).Single(function(n){
+		var node = Enumerable.From(nodes).SingleOrDefault(-1, function(n){
 			return n.shortLink !== undefined && n.shortLink === id;
 		});
 		
-		return nodes.indexOf(node)
+		return (node === -1) ? node : nodes.indexOf(node);
 	};
 	
 	var getDependencies = function(s){
