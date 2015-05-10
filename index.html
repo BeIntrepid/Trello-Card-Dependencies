@@ -10,39 +10,50 @@
 
 	<body class="back">
 
-		<!-- Page Loading -->
-		<div class="loadingMessage"><p>Loading</p></div>
+		<!-- Loading Spinner -->
+		<div class="loadingMessage">
+			<svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+				<circle class="circle" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+			</svg>
+		</div>
 
 
-		<!-- Navigation -->
-        <div class="legend">
-            <h3>Legend</h3>
-            <ul class="keys">
-                <li class="backlog"><span>Backlog</span></li>
-                <li class="in-progress"><span>In Progress</span></li>
-                <li class="blocked"><span>Blocked</span></li>
-                <li class="done"><span>Done</span></li>
-            </ul>
+		<!-- Navigation (Legend & Controls) -->
+		<nav class="navigation left-nav">
+			<div class="legend">
+				<h3>Legend</h3>
+	            <ul class="keys">
+	                <li class="backlog"><span>Backlog</span></li>
+	                <li class="in-progress"><span>In Progress</span></li>
+	                <li class="blocked"><span>Blocked</span></li>
+	                <li class="done"><span>Done</span></li>
+	            </ul>
+			</div>
 
-			<h3>Controls</h3>
-			<ul class="controls">
-				<li>Use the mouse wheel to zoom</li>
-				<li>Drag the background to pan</li>
-				<li>Drag nodes to improve the layout</li>
-			</ul>
-        </div>
+			<div class="controls">
+				<h3>Controls</h3>
+				<ul>
+					<li>Use the mouse wheel to zoom</li>
+					<li>Drag the background to pan</li>
+					<li>Drag nodes to improve the layout</li>
+				</ul>
+			</div>
+		</nav>
 
-		<div class="addDependencyArea">
-			<h3>Actions</h3>
-			<b><p id="dependencyWarning"></p></b>
+		<!-- Navigation (Actions) -->
+		<nav class="navigation right-nav addDependencyArea">
+			<div class="actions">
+				<h3>Actions</h3>
+				<p id="dependencyWarning"></p>
 
-			<a class="header-btn dependencyButton add-dependency-button" id="addDependencyButton"><b>Add dependency</b></a>
-			<a class="header-btn dependencyButton remove-dependency-button" id="removeDependencyButton"><b>Remove Dependency</b></a>
-			<a class="header-btn dependencyButton cancel-dependency-button" id="cancelDependencyButton"><b>Cancel</b></a>
+				<a class="header-btn dependencyButton add-dependency-button" id="addDependencyButton">Add dependency</a>
+				<a class="header-btn dependencyButton remove-dependency-button" id="removeDependencyButton">Remove Dependency</a>
+				<a class="header-btn dependencyButton cancel-dependency-button" id="cancelDependencyButton">Cancel</a>
 
-			<p id="dependency"></p>
-			<p id="dependant"></p>
-        </div>
+				<p id="dependency"></p>
+				<p id="dependant"></p>
+			</div>
+        </nav>
 
 		<!-- Dependency Cards-->
 		<div id="templates">
