@@ -1,0 +1,56 @@
+
+/* Reset */
+*, *:after, *:before { margin:0; padding:0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;  }
+* :focus { outline: 0; }
+
+html { height: 100%; width: 100%; }
+body { height: 100%; width: 100%; overflow: hidden; }
+svg { width: 100%; height: 100%; cursor: move; }
+
+
+/* Clear Fix */
+.clear:before, .clear:after { content: " "; display: table; }
+.clear:after { clear: both; }
+.clear { *zoom: 1; clear: both;  }
+
+
+/* Extension */
+#templates { display: none; }
+#markerArrow { fill: #fff; }
+
+.back { background: rgb(14, 116, 175); }
+
+.list-card { border-bottom: 1px solid rgb(0, 0, 0); border-bottom: 1px solid rgba(0, 0, 0, .7); }
+.list-card a { color: rgba(0, 0, 0); color: rgba(0, 0, 0, .7); }
+.card { border-radius: 3px; width: 200px; height: 100px; background: white; }
+.list { border-radius: 3px; width: 100px; height: 100px; background: blue; }
+.anchor { border-radius: 50%; border: 7px solid #ccc; width: 100px; height: 100px; background: rgb(255, 255, 255); display: table; }
+.name { text-align: center; vertical-align: middle; display: table-cell; }
+
+
+/* Card State Styles */
+.blocked { background: #ff1744; }
+.in-progress { background: #ffff00; }
+.backlog { background: #fff; }
+.done { background: #00e676; }
+.accepted { background: #00e676; }
+
+
+/* Navigation */
+.legend, .addDependencyArea  { position: absolute; left: 10px; top: 10px; max-width: 100px; background: rgba(255,255,255,0.5); border-radius: 5px; padding: 5px; }
+.addDependencyArea { left: 125px; top: 10px; max-width : none; }
+.dependencyButton { padding: 0 10px 0 10px; margin-left:8px; display:block; float:none; margin-bottom: 10px; height: auto; }
+.cancel-dependency-button { display: none; }
+
+
+
+.legend {  }
+.legend .controls { line-height: 1.2; list-style: outside; }
+.legend .controls li {  }
+
+.legend .keys {  }
+.legend .keys li { padding: 5px; border-left: 7px solid rgba(0, 0, 0, .15); }
+.legend .keys li span { color: rgb(0, 0, 0); color: rgba(0, 0, 0, .7); }
+
+.badge-points { display: none; }
+.loadingMessage { position: absolute; left: 50%; top: 50%; font-size : 30px; }
