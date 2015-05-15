@@ -1,0 +1,111 @@
+
+/*
+------------------------------------
+   RESET
+------------------------------------ */
+
+/* Universal Styles */
+*, *:after, *:before { margin:0; padding:0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;  }
+* :focus { outline: 0; }
+
+
+/* Clear Fix */
+.clear:before, .clear:after { content: " "; display: table; }
+.clear:after { clear: both; }
+.clear { *zoom: 1; clear: both;  }
+
+
+/* Full Widths */
+html { height: 100%; width: 100%; }
+body { height: 100%; width: 100%; overflow: hidden; }
+svg { width: 100%; height: 100%; }
+
+.back { background: rgb(14, 116, 175); }
+
+
+/*
+------------------------------------
+   NAVIGATION
+------------------------------------ */
+
+/* Universal Nav Styles */
+.navigation { background: rgba(255,255,255,.5); position: absolute; top: 0; margin: 10px 0 0 10px; padding: 0  10px 10px; border-radius: 5px; }
+.navigation.left-nav { width: 110px; left: 0; }
+.navigation.right-nav { width: 200px; left: 120px; }
+.navigation h3 { padding: .5em 0 0; }
+
+/* Legends Nav */
+.navigation .legend .keys {  }
+.navigation .legend .keys li { padding: 5px; border-left: 7px solid rgba(0, 0, 0, .15); }
+.navigation .legend .keys li span { color: rgb(0, 0, 0); color: rgba(0, 0, 0, .7); }
+
+/* Controls Nav */
+.navigation .controls {  }
+.navigation .controls h3 { margin: 10px 0 0; }
+.navigation .controls ul { line-height: 1; }
+.navigation .controls ul li { margin: 0 0 .7em; }
+
+/* Actions Nav */
+.dependencyButton { display: block; width: 100%; float: left; margin: 0 0 10px; padding: 0 10px; cursor: pointer; }
+.cancel-dependency-button { display: none; }
+
+
+/*
+------------------------------------
+   DEPENDENCY CARDS
+------------------------------------ */
+
+/* Dependency Extension */
+#templates { display: none; }
+#markerArrow { fill: #fff; }
+
+.list-card { border-bottom: 1px solid rgb(0, 0, 0); border-bottom: 1px solid rgba(0, 0, 0, .7); }
+.list-card a { color: rgba(0, 0, 0); color: rgba(0, 0, 0, .7); }
+.card { border-radius: 3px; width: 200px; height: 100px; background: white; }
+.list { border-radius: 3px; width: 100px; height: 100px; background: blue; }
+.anchor { border-radius: 50%; border: 7px solid #ccc; width: 100px; height: 100px; background: rgb(255, 255, 255); display: table; }
+.name { text-align: center; vertical-align: middle; display: table-cell; }
+.badge-icon { color: rgba(0, 0, 0, .3); }
+.badge-points { display: none; }
+
+
+/* Card State Styles */
+.blocked { background: #ff1744; }
+.in-progress { background: #ffff00; }
+.backlog { background: #fff; }
+.done { background: #00e676; }
+.accepted { background: #00e676; }
+
+
+/* Loading Spinner */
+.loadingMessage { position: absolute; left: 50%; top: 50%; margin: -35px 0 0 -35px; }
+.spinner { stroke: #fff;-webkit-animation: rotation 1.4s linear infinite; animation: rotation 1.4s linear infinite; }
+
+@-webkit-keyframes rotation
+{
+  0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(270deg); transform: rotate(270deg); }
+}
+
+@keyframes rotation
+{
+  0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(270deg); transform: rotate(270deg); }
+}
+
+/* Loading Circle */
+.circle { stroke-dasharray: 187; stroke-dashoffset: 0; -webkit-transform-origin: center; -ms-transform-origin: center; transform-origin: center; -webkit-animation: turn 1.4s ease-in-out infinite; animation: turn 1.4s ease-in-out infinite; }
+
+@-webkit-keyframes turn
+{
+  0% { stroke-dashoffset: 187; }
+  50% { stroke-dashoffset: 46.75; -webkit-transform: rotate(135deg); transform: rotate(135deg); }
+  100% { stroke-dashoffset: 187; -webkit-transform: rotate(450deg); transform: rotate(450deg); }
+}
+
+@keyframes turn
+{
+  0% { stroke-dashoffset: 187; }
+  50% { stroke-dashoffset: 46.75; -webkit-transform: rotate(135deg); transform: rotate(135deg); }
+  100% { stroke-dashoffset: 187; -webkit-transform: rotate(450deg); transform: rotate(450deg); }
+}
