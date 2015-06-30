@@ -2,6 +2,7 @@
 Chrome extension that helps you to map dependencies between your cards in Trello
 
 To get up and running with the extension in developer mode:
+
 1. Clone the repo
 2. In chrome go to "chrome://extensions/"
 3. Enable the "Developer mode" check box
